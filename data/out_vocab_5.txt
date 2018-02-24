@@ -8,6 +8,7 @@ $
 30
 4
 5
+7
 90
 ?
 absolut
@@ -15,6 +16,7 @@ act
 actor
 actual
 ador
+advis
 ago
 allow
 almost
@@ -79,6 +81,7 @@ cabl
 call
 came
 camera
+cant
 car
 care
 case
@@ -110,6 +113,7 @@ complet
 connect
 consid
 construct
+contact
 continu
 cook
 cool
@@ -139,8 +143,11 @@ dine
 direct
 director
 disappoint
+disgust
 dish
 done
+dont
+drain
 drama
 drink
 drive
@@ -149,6 +156,7 @@ ear
 earpiec
 easi
 eat
+eaten
 edit
 effect
 either
@@ -160,6 +168,7 @@ enjoy
 enough
 entir
 especi
+establish
 even
 ever
 everi
@@ -308,6 +317,7 @@ mind
 minut
 miss
 mistak
+mobil
 money
 month
 mostli
@@ -334,11 +344,13 @@ offer
 oh
 old
 one
+open
 order
 origin
 other
 overal
 owner
+paid
 part
 pasta
 pay
@@ -386,6 +398,7 @@ quit
 rare
 rate
 rather
+razr
 real
 realli
 reason
@@ -407,6 +420,7 @@ run
 said
 salad
 sandwich
+satisfi
 sauc
 saw
 say
@@ -447,6 +461,7 @@ song
 soon
 sound
 special
+spoiler
 spot
 staff
 star
@@ -527,6 +542,7 @@ whether
 white
 whole
 wife
+wish
 without
 wonder
 word
