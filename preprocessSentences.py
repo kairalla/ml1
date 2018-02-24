@@ -12,8 +12,8 @@ import time
 import os
 import csv
 
-chars = ['{','}','#','%','&','\(','\)','\[','\]','<','>',',', '!', '.', ';', 
-'?', '*', '\\', '\/', '~', '_','|','=','+','^',':','\"','\'','@','-']
+chars = ['{','}','#','%','&','\(','\)','\[','\]','<','>',',', '.', ';',
+'*', '\\', '\/', '~', '_','|','=','+','^',':','\"','\'','@','-']
 
 def stem(word):
    regexp = r'^(.*?)(ing|ly|ed|ious|ies|ive|es|s|ment)?$'
@@ -64,11 +64,14 @@ def tokenize_corpus(path, train=True):
     raw = ' '.join(raw.rsplit()[1:-1])
     # remove noisy characters; tokenize
     raw = re.sub('[%s]' % ''.join(chars), ' ', raw)
+    # raw = raw.replace('!', " !")
+    # raw = raw.replace('?', " ?")
     tokens = word_tokenize(raw)
     tokens = [w.lower() for w in tokens]
     tokens = [w for w in tokens if w not in stopWords]
     tokens = [wnl.lemmatize(t) for t in tokens]
-    tokens = [porter.stem(t) for t in tokens]   
+    tokens = [porter.stem(t) for t in tokens]
+    print tokens
     if train == True:
      for t in tokens: 
          try:
