@@ -67,24 +67,18 @@ def tokenize_corpus(path, train=True):
     # raw = raw.replace('!', " !")
     # raw = raw.replace('?', " ?")
     tokens = word_tokenize(raw)
-    tokens2 = word_tokenize(raw)
     tokens = [w.lower() for w in tokens]
     tokens = [w for w in tokens if w not in stopWords]
     tokens = [wnl.lemmatize(t) for t in tokens]
     tokens = [porter.stem(t) for t in tokens]
     print tokens
     if train == True:
-     i=0
      for t in tokens:
          try:
-             if(tokens2[i].upper().replace('!',"").replace('?',"") == tokens2[i]):
-                 words[t] = words[t]+2 #count all-caps twice
-             else:
-                 words[t] = words[t]+1
+            words[t] = words[t]+1
          except:
              words[t] = 1
-         finally:
-             i = i+1
+
     docs.append(tokens)
 
   if train == True:
