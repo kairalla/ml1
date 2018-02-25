@@ -23,7 +23,7 @@ def main(argv):
         print "No such classifier"
         return
 
-    f = open('C:/Users/Reid Kairalla/PyCharmProjects/ML/data/out_bag_of_words_5.csv', 'r')
+    f = open('data/out_bag_of_words_5.csv', 'r')
     lines = f.readlines()
 
     freq = [0] * len(lines)
@@ -39,7 +39,7 @@ def main(argv):
 
     tfidf.fit_transform(freq, y=None)
     print "whew"
-    f = open('C:/Users/Reid Kairalla/PyCharmProjects/ML/data/out_classes_5.txt', 'r')
+    f = open('data/out_classes_5.txt', 'r')
     lines = f.readlines()
 
     sentiments = [0] * len(lines)
@@ -50,7 +50,7 @@ def main(argv):
     # tfidf.fit(freq, sentiments)
     clf.fit(freq, sentiments)
 
-    f = open('C:/Users/Reid Kairalla/PyCharmProjects/ML/data/test_bag_of_words_0.csv', 'r')
+    f = open('data/test_bag_of_words_0.csv', 'r')
     lines = f.readlines()
 
     test = [0] * len(lines)
