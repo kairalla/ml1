@@ -1,4 +1,6 @@
+import sklearn
 from sklearn.naive_bayes import MultinomialNB
+from sklearn import metrics
 
 f = open('data/out_bag_of_words_5.csv', 'r')
 lines = f.readlines()
@@ -41,3 +43,14 @@ for line in lines:
 	i += 1
 
 predicted = clf.predict(test)
+
+f = open('data/test_classes_0.txt', 'r')
+lines = f.readlines()
+
+results = [0] * len(lines)
+i = 0
+for line in lines:
+	results[i] = int(line)
+	i += 1
+
+print metrics.accuracy_score(results , predicted)
