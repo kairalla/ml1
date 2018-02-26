@@ -67,15 +67,16 @@ def tokenize_corpus(path, train=True):
     # raw = raw.replace('!', " !")
     # raw = raw.replace('?', " ?")
     tokens = word_tokenize(raw)
-    i = 0
-    for w in tokens:
-      if w.upper() == w:
-        tokens[i] = w.lower()
-        try:
-          words[tokens[i]] = words[tokens[i]] + 1
-        except:
-          words[tokens[i]] = 1
-      i = i + 1
+    if train == True:
+       i = 0
+       for w in tokens:
+         if w.upper() == w:
+           tokens[i] = w.lower()
+           try:
+             words[tokens[i]] = words[tokens[i]] + 1
+           except:
+             words[tokens[i]] = 1
+         i = i + 1
     tokens = [w for w in tokens if w not in stopWords]
     tokens = [wnl.lemmatize(t) for t in tokens]
     tokens = [porter.stem(t) for t in tokens]
