@@ -96,10 +96,11 @@ def main(argv):
     print metrics.accuracy_score(results, predicted)
 
     # Calculate ROC curve
+    predictedProb = clf.predict_proba(test)
     fpr = dict()
     tpr = dict()
     roc_auc = dict()
-    fpr, tpr, _ = roc_curve(results, predicted)
+    fpr, tpr, _ = roc_curve(results, predictedProb[:, 1])
     roc_auc = auc(fpr, tpr)
 
     # Plot ROC
