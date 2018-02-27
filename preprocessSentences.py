@@ -67,11 +67,18 @@ def tokenize_corpus(path, train=True):
     # raw = raw.replace('!', " !")
     # raw = raw.replace('?', " ?")
     tokens = word_tokenize(raw)
-    tokens = [w.lower() for w in tokens]
+    i = 0
+    for w in tokens:
+      if w.upper() == w:
+        tokens[i] = w.lower()
+        try:
+          words[tokens[i]] = words[tokens[i]] + 1
+        except:
+          words[tokens[i]] = 1
+      i = i + 1
     tokens = [w for w in tokens if w not in stopWords]
     tokens = [wnl.lemmatize(t) for t in tokens]
     tokens = [porter.stem(t) for t in tokens]
-    print tokens
     if train == True:
      for t in tokens:
          try:
@@ -123,7 +130,7 @@ def main(argv):
   vocabf = ''
 
   try:
-   opts, args = getopt.getopt(argv,"p:o:v:",["path=","ofile=","vocabfile="])
+   opts, args = getopt.getopt(argv,"p:o:v:t:",["path=","ofile=","vocabfile=", "t="])
   except getopt.GetoptError:
     print 'Usage: \n python preprocessSentences.py -p <path> -o <outputfile> -v <vocabulary>'
     sys.exit(2)
@@ -137,8 +144,10 @@ def main(argv):
       outputf = arg
     elif opt in ("-v", "--vocabfile"):
       vocabf = arg
+    elif opt in ("-t", "--t"):
+      training = arg
 
-  traintxt = path+"/train.txt"
+  traintxt = path+"/" + training + ".txt"
   print 'Path:', path
   print 'Training data:', traintxt
 
@@ -188,5 +197,3 @@ def main(argv):
 
 if __name__ == "__main__":
   main(sys.argv[1:])
-
- 
