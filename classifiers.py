@@ -20,7 +20,10 @@ def main(argv):
     if classifier == 'MultinomialNB':
         clf = MultinomialNB()
     elif classifier == 'SVM':
-        clf = svm.SVC()
+        clf = svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='rbf',
+    max_iter=-1, probability=True, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
     elif classifier == "KNN":
         clf = KNeighborsClassifier(n_neighbors=13)
     elif classifier == "RF":
